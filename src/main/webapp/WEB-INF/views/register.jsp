@@ -39,9 +39,9 @@
 			</tr>
 
 			<tr>
-				<td colspan="2">	
-				<input type="submit" value="Register" />					
-					 <%-- <c:choose>				    
+				<td colspan="2">
+				<input type="submit" value="Register" />
+				<%-- 	 <c:choose>				    
 						<c:when test="${store}">
 							<input type="submit" value="Update" />
 						</c:when>
