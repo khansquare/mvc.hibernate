@@ -16,19 +16,20 @@ public class ViewController {
 	private BookService service;
 	
 	@RequestMapping(value = {"/"})
-	public String start(ModelMap model) {		
+	public String start(ModelMap model) {
 		return "index";
 	}
 	
 	@RequestMapping(value = {"/register"})
-	public String register(Book book, ModelMap model) {		
+	public String register(Book book, ModelMap model) {
 		return "register";
 	}
 	
 	@RequestMapping(value = {"store"})
 	public String saveBook(Book book, BindingResult result, ModelMap model) {
 		service.saveBook(book);
+		model.addAttribute("book", new Book());
 		model.addAttribute("success", "Book " + book.getName() + " has been stored successfully.");
-		return "done";
+		return "register";
 	}
 }

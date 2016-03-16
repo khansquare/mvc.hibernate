@@ -7,6 +7,6 @@
 <title>Completed</title>
 </head>
 <body>
-Done!
+Done! ${success}
 </body>
 </html>
