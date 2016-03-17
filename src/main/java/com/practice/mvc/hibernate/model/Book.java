@@ -1,5 +1,6 @@
 package com.practice.mvc.hibernate.model;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,15 +15,19 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Basic
 	@Column(name = "NAME")
 	private String name;
 	
+	@Basic
 	@Column(name = "WRITER")
 	private String writer;
 	
+	@Basic
 	@Column(name = "QUANTITY")
 	private int quantity;
 	
+	@Basic
 	@Column(name = "ISBN")
 	private String isbn;
 
@@ -92,5 +97,10 @@ public class Book {
         } else if (!isbn.equals(other.isbn))
             return false;
         return true;
+    }
+    
+    @Override
+    public String toString() {    
+    	return name;
     }
 }

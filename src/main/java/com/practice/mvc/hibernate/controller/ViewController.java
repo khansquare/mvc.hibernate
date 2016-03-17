@@ -2,6 +2,8 @@ package com.practice.mvc.hibernate.controller;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,12 +20,12 @@ public class ViewController {
 	@Autowired
 	private BookService service;
 	
-	@RequestMapping(value = {"/"},  method = RequestMethod.GET)
+	@RequestMapping(value = {"/"},  method = RequestMethod.GET)	
 	public String start(ModelMap model) {
 		List<Book> books = service.findAllEmployees();
 		for(Book b : books) System.out.println(b.toString());
 		model.addAttribute("books", books);
-		System.out.println("Pointing to home..");
+		System.out.println("Listing Records..");
 		return "index";
 	}
 	
