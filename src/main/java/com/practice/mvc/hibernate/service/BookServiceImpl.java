@@ -1,5 +1,7 @@
 package com.practice.mvc.hibernate.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +19,10 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public void saveBook(Book book) {
 		dao.saveBook(book);
+	}
+
+	@Override
+	public List<Book> findAllEmployees() {	
+		return dao.findAllEmployees();
 	}
 }

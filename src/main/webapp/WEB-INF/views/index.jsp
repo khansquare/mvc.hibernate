@@ -8,6 +8,20 @@
 <title>New Book Registration</title>
 </head>
 <body>
+	<table>
+        <tr>
+            <td>NAME</td><td>WRITER</td><td>QUANTITY</td><td>ISBN</td><td></td>
+        </tr>
+        <c:forEach items="${books}" var="book">
+            <tr>
+            <td>${book.name}</td>
+            <td>${book.writer}</td>
+            <td>${book.quantity}</td>
+            <td>${book.isbn}</td>           
+            </tr>
+        </c:forEach>
+    </table>
+    <br/>
 	<a href="<c:url value='/register' />">Register</a>
 </body>
 </html>

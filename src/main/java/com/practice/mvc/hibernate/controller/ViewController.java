@@ -1,10 +1,13 @@
 package com.practice.mvc.hibernate.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.practice.mvc.hibernate.model.Book;
 import com.practice.mvc.hibernate.service.BookService;
@@ -15,8 +18,12 @@ public class ViewController {
 	@Autowired
 	private BookService service;
 	
-	@RequestMapping(value = {"/"})
+	@RequestMapping(value = {"/"},  method = RequestMethod.GET)
 	public String start(ModelMap model) {
+		List<Book> books = service.findAllEmployees();
+		for(Book b : books) System.out.println(b.toString());
+		model.addAttribute("books", books);
+		System.out.println("Pointing to home..");
 		return "index";
 	}
 	
